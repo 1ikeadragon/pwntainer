@@ -1,0 +1,5 @@
+e asm.cmt.right=true
+e asm.pseudo=true
+eco darkda
+e scr.utf8=true
+e dbg.slow=trueroot
