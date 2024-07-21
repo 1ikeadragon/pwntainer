@@ -1,6 +1,6 @@
 # pwntainer
 
-Docker container will all required CTF pwn tools. Had to do this cuz macOS moment.
+Docker container with all required CTF pwn tools. Had to do this cuz macOS moment.
 
 ### Build:
 
