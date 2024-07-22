@@ -15,8 +15,9 @@ RUN apt update -y && \
 
 RUN cd /tools && git clone https://github.com/pwndbg/pwndbg && cd pwndbg && ./setup.sh 
 
-WORKDIR /pwn
+# binja only
+RUN cd /tools && wget https://github.com/Vector35/debugger/releases/download/0.1/debugger-linux.zip && unzip debugger-linux.zip -d debugger && rm -rf debugger-linu*.zip
 
-RUN wget https://github.com/Vector35/debugger/releases/download/0.1/debugger-linux.zip && unzip debugger-linux.zip -d debugger && rm -rf debugger-linu*.zip
+WORKDIR /pwn
 
 EXPOSE 31337
