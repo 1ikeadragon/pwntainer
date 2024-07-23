@@ -13,7 +13,7 @@ docker build -t pwn:pwn .
 ```sh
 alias pwn="docker run  --privileged --cap-add=SYS_PTRACE -p 31337:31337 -v $(pwd):/pwn -it pwn:pwn bash"
 ```
-### NOTE:
+### Note for debugging x86_64 on Apple Silicon:
 
 When I tried debugging inside the container built with and run as `--platform=linux/amd64`, it did not work. I looked around a bit to find that this is a known issue with Docker on Mac. As an alternative to debug and run x86_64 binaries, I switched to [Colima](https://github.com/abiosoft/colima). 
 
