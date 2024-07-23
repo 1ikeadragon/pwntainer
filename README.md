@@ -11,7 +11,7 @@ docker build -t pwn:pwn .
 ### Use:
 
 ```sh
-alias pwn="docker run  --privileged --cap-add=SYS_PTRACE -p 31337:31337 -v $(pwd):/pwn -it pwn:pwn bash"
+alias pwn="docker run --security-opt seccomp=unconfined --privileged --cap-add=SYS_PTRACE -p 31337:31337 -v ./:/pwn -it pwn:pwn bash"
 ```
 ### Note for debugging x86_64 on Apple Silicon:
 
@@ -25,7 +25,7 @@ brew install docker
 brew install colima
 brew install docker-buildx
 brew install docker-compose
-colima start --profile rosetta --cpu 8 --memory 8 --disk 10 --arch x86_64 --vm-type=vz --vz-rosetta
+colima start -p x64 -a x86_64 -c 8 -m 4 -d 10 --mount-type virtiofs --ssh-agent --vm-type vz --vz-rosetta
 docker build -t pwn:pwn .
 docker run --security-opt seccomp=unconfined --privileged --cap-add=SYS_PTRACE -p 31337:31337 -v ./:/pwn -it pwn:pwn bash
 ```
