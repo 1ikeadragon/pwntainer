@@ -17,7 +17,7 @@ alias pwn="docker run --security-opt seccomp=unconfined --privileged --cap-add=S
 
 When I tried debugging inside the container built with and run as `--platform=linux/amd64`, it did not work. I looked around a bit to find that this is a known issue with Docker on Mac. As an alternative to debug and run x86_64 binaries, I switched to [Colima](https://github.com/abiosoft/colima). 
 
-It is slower because it uses QEMU to emulate x86_64 but it works flawlessly. I guess the performance hit is bearable as long as everything works. So until Docker fixes their issue with Rosetta2 we'll just have to use QEMU.
+It is slower because it uses QEMU to [emulate the entire VM in x86_64](https://lima-vm.io/docs/config/vmtype/) but it works flawlessly. I guess the performance hit is bearable as long as everything works. So until [Docker fixes their issue](https://github.com/docker/for-mac/issues/6921) with Rosetta2 we'll just have to use QEMU.
 
 Here's the command to install and set everything:
 ```sh
