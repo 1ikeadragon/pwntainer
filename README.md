@@ -24,9 +24,8 @@ Here's the command to install and set everything:
 brew install docker
 brew install colima
 brew install docker-buildx
-brew install docker-compose
 colima start -p x64 -a x86_64 -c 8 -m 4 -d 10 --mount-type virtiofs --ssh-agent --vm-type vz --vz-rosetta
-docker build -t pwn:pwn .
+docker-buildx -t pwn:pwn .
 docker run --security-opt seccomp=unconfined --privileged --cap-add=SYS_PTRACE -p 31337:31337 -v ./:/pwn -it pwn:pwn bash
 ```
 
